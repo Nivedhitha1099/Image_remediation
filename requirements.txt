@@ -1,0 +1,6 @@
+colorthief
+scikit-learn
+openai
+python-dotenv
+easyocr
+pymongo
