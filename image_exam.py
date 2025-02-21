@@ -187,7 +187,7 @@ def classify_image(image_path):
                 {"role": "user",
                  "content":[
                     {"type": "text", 
-                     "text": "What type of exact image is this? one word classify the images in any of one classes :'just_image', 'bar_chart', 'diagram', 'flow_chart', 'graph', 'growth_chart', 'pie_chart', 'table','map' 1st classification and also classify Infographic without label, Infographic with label, Map without label, Map with Label,complex images,graphic images 2nd classification give only from both classifcation 1 and 1"},
+                     "text": "What type of exact image is this? one word classify the images in any of one classes :'just_image', 'bar_chart', 'diagram', 'flow_chart', 'graph', 'growth_chart', 'pie_chart', 'table','map' 1st classification and also classify Infographic without label, Infographic with label, Map without label, Map with Label,complex images,graphic images 2nd classification give only from both classifcation 1 and 1 give output in same format"},
                     {
                         "type": "image_url",
                         "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"},
