@@ -127,10 +127,8 @@ class ImageAnalyzer:
                 contrast_ratio = float(self.calculate_color_ratio(text_color, bg_color))
                 
                 wcag_compliance = {
-                    'AA_large': contrast_ratio >= 3.0,
-                    'AA_small': contrast_ratio >= 4.5,
-                    'AAA_large': contrast_ratio >= 4.5,
-                    'AAA_small': contrast_ratio >= 7.0
+                    'AA_large': contrast_ratio >= 4.5,
+                   
                 }
                 
                 text_contrast_results.append({
@@ -322,11 +320,11 @@ def create_accessibility_app():
                 if results:
                     # Determine compliance
                     text_compliant = all(
-                        region['wcag_compliance']['AA_small']
+                        region['wcag_compliance']['AA_large']
                         for region in results['text_analysis']['text_regions']
                     ) if results['text_analysis']['text_regions'] else True
                     color_compliant = all(
-                        adj['contrast_ratio'] >= 4.5
+                        adj['contrast_ratio'] >= 3
                         for color in results['color_analysis']
                         for adj in color['adjacent_colors']
                     )
@@ -407,9 +405,8 @@ def create_accessibility_app():
                                                 unsafe_allow_html=True
                                             )
                                             st.markdown(f"Contrast Ratio: {contrast:.2f}")
-                                            if contrast >= 7.0:
-                                                st.markdown("✅ Meets WCAG AAA")
-                                            elif contrast >= 4.5:
+                                            
+                                            if contrast >= 4.5:
                                                 st.markdown("✅ Meets WCAG AA")
                                             else:
                                                 st.markdown("❌ Does not meet WCAG requirements")
