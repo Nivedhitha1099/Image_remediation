@@ -34,7 +34,7 @@ import random
 import string
 load_dotenv()
 # Initialize EasyOCR with multiprocessing
-reader = easyocr.Reader(['en'], gpu=False)
+reader = easyocr.Reader(['en'], gpu=False,model_storage_directory="/tmp/")
 
 # Set up Claude AI
 chat_model = ChatAnthropic(
