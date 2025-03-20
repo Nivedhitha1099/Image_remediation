@@ -21,4 +21,6 @@ google-cloud-vision
 fastapi
 uvicorn
 opencv-python-headless
+langchain-anthropic
+
 
