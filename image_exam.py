@@ -242,10 +242,7 @@ class ImageAnalyzer:
             region = self.image_array[y_min:y_max, x_min:x_max].copy()
             region_with_padding = self.image_array[y_min_pad:y_max_pad, x_min_pad:x_max_pad].copy()
                
-            random_string = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
-            debug_path = os.path.join(debug_dir, f"region_pad_{random_string}.png")
-            cv2.imwrite(debug_path, cv2.cvtColor(region_with_padding, cv2.COLOR_RGB2BGR))
-            print(f"Saved debug region to {debug_path}")
+            
                
             gray_region = cv2.cvtColor(region, cv2.COLOR_RGB2GRAY)    
             _, otsu_binary = cv2.threshold(gray_region, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -315,11 +312,8 @@ class ImageAnalyzer:
             if bg_color is None:
                  bg_color = tuple(map(int, sorted_colors[0]))
 
-            color_viz = np.zeros((50, 100, 3), dtype=np.uint8)
-            color_viz[:25, :] = text_color
-            color_viz[25:, :] = bg_color
-            color_path = os.path.join(debug_dir, f"colors_{random_string}.png")
-            cv2.imwrite(color_path, cv2.cvtColor(color_viz, cv2.COLOR_RGB2BGR))
+            
+            
 
         
             return text_color, bg_color
