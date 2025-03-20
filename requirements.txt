@@ -23,5 +23,7 @@ uvicorn
 opencv-python-headless
 langchain-anthropic
 RapidFuzz
+easyocr[all]
+
 
 
